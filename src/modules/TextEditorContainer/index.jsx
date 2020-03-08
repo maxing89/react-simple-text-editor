@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { message } from 'antd';
 import Header from './components/Header';
 import FileZone from './components/FileZone';
@@ -10,6 +10,7 @@ import {
     changeSelectedWordValue,
 } from './helpers';
 import dataMuseAPI from './api/api';
+import { AppWrapper } from './styles'
  
 const TextEditorContainer = (props) => {
   const defaultFormat = {
@@ -78,7 +79,7 @@ const TextEditorContainer = (props) => {
   }
 
   return (
-    <Fragment>
+    <AppWrapper>
       <Header 
         onChangeFormat={handleOnChangeFormat}
         format={selectedWord ? selectedWord.word.format : defaultFormat}
@@ -93,7 +94,7 @@ const TextEditorContainer = (props) => {
         onSelection={handleOnSelection}
         onClick={handleUnSelect}
         words={inputText} />
-    </Fragment>
+    </AppWrapper>
   )
 }
 
